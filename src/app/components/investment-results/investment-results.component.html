@@ -1,0 +1,22 @@
+<p>Please enter some values and press "Calculate"</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of results; track $index) {
+    <tr>
+      <td>{{ item.year }}</td>
+      <td>{{ item.annualInvestment }}</td>
+      <td>{{ item.totalInterest }}</td>
+      <td>{{ item.totalAmountInvested }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
