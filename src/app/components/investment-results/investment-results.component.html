@@ -1,10 +1,12 @@
-<p>Please enter some values and press "Calculate"</p>
-
+@if (!results) {
+<p class="center">Please enter some values and press "Calculate"</p>
+} @else {
 <table>
   <thead>
     <tr>
       <th>Year</th>
-      <th>Investment (Year)</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
       <th>Total Interest</th>
       <th>Invested Capital</th>
     </tr>
@@ -13,10 +15,12 @@
     @for (item of results; track $index) {
     <tr>
       <td>{{ item.year }}</td>
-      <td>{{ item.annualInvestment }}</td>
-      <td>{{ item.totalInterest }}</td>
-      <td>{{ item.totalAmountInvested }}</td>
+      <td>{{ item.valueEndOfYear | currency : "BRL" }}</td>
+      <td>{{ item.interest | currency : "BRL" }}</td>
+      <td>{{ item.totalInterest | currency : "BRL" }}</td>
+      <td>{{ item.totalAmountInvested | currency : "BRL" }}</td>
     </tr>
     }
   </tbody>
 </table>
+}
